@@ -6,7 +6,7 @@ interface CustomInputProps {
     dependencies?: string[]
 }
 
-const CustomInput = ({ name, placeholder, dependencies }: CustomInputProps) => {
+const PasswordInput = ({ name, placeholder, dependencies }: CustomInputProps) => {
   return (
     <Form.Item
         name={name}
@@ -16,10 +16,20 @@ const CustomInput = ({ name, placeholder, dependencies }: CustomInputProps) => {
             {required: true, message: 'Required field'},
             ({ getFieldValue }) => ({
                 validator(_, value) {
-                    if (!value || getFieldValue('password') === value) {
+                    if (!value) {
                         return Promise.resolve()
                     }
-                    return Promise.reject(new Error('Passwords do not match'))
+                    if (name === 'confirmPassword') {
+                        if(!value || getFieldValue('password') === value) {
+                            return Promise.resolve()
+                        }
+                        return Promise.reject(new Error('Passwords do not match'))
+                    } else {
+                        if (value.length < 6) {
+                            return Promise.reject(new Error('Password must be at least 6 characters in length'))
+                        }
+                        return Promise.resolve()
+                    }
                 }
             })
         ]}
@@ -29,4 +39,4 @@ const CustomInput = ({ name, placeholder, dependencies }: CustomInputProps) => {
   )
 }
 
-export default CustomInput
+export default PasswordInput
