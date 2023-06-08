@@ -8,6 +8,7 @@ import Home from './pages/home'
 import Login from './pages/login'
 import Register from './pages/register'
 import { ConfigProvider, theme } from 'antd'
+import AuthWrapper from './components/authWrapper/AuthWrapper'
 
 
 
@@ -31,7 +32,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
     <ConfigProvider theme={{algorithm: theme.darkAlgorithm}}>
-      <RouterProvider router={router} />
+      <AuthWrapper>
+        <RouterProvider router={router} />
+      </AuthWrapper>
     </ConfigProvider>
   </Provider>
 )

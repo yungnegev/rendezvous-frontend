@@ -12,3 +12,14 @@
     password: string
     logs: unknown[]
  }
+
+export type Log = {
+   id: string
+   firstName: string
+   lastName: string 
+   address: string
+   age: string
+   createdAt?: unknown
+   userId: string
+   user?: User
+}
