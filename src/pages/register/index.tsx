@@ -3,7 +3,7 @@ import Layout from '../../components/layout'
 import PasswordInput from '../../components/passwordInput'
 import CustomInput from '../../components/customInput'
 import CustomButton from '../../components/customButton'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { Paths } from '../../lib/paths'
 import { useSelector } from 'react-redux'
 import { selectUser } from '../../redux/slices/authSlice'
@@ -35,6 +35,9 @@ const Register = () => {
       }
     }
   }
+
+
+  if (user) return <Navigate to='/'/>
 
   return (
     <Layout>
