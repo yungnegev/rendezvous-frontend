@@ -11,6 +11,8 @@ import { ConfigProvider, theme } from 'antd'
 import AuthWrapper from './components/authWrapper/AuthWrapper'
 import AddLog from './pages/add'
 import Status from './pages/status'
+import Log from './pages/log'
+import EditLog from './pages/edit'
 
 
 
@@ -34,6 +36,14 @@ const router = createBrowserRouter([
   {
     path: `${Paths.status}/:status`,
     element: <Status />
+  },
+  {
+    path: `${Paths.log}/:id`,
+    element: <Log />
+  },
+  {
+    path: `${Paths.logEdit}`,
+    element: <EditLog />
   },
 ])
 
