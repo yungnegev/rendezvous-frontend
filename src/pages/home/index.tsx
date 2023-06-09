@@ -42,9 +42,11 @@ const Home = () => {
     },
   ]
 
+  const goToAdd = () => navigate(Paths.logAdd)
+
   return (
     <Layout>
-      <CustomButton type='primary' onClick={() => null} icon={<PlusCircleOutlined />}>
+      <CustomButton type='primary' onClick={goToAdd} icon={<PlusCircleOutlined />}>
         Add
       </CustomButton>
       <Table

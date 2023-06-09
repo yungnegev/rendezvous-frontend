@@ -9,6 +9,8 @@ import Login from './pages/login'
 import Register from './pages/register'
 import { ConfigProvider, theme } from 'antd'
 import AuthWrapper from './components/authWrapper/AuthWrapper'
+import AddLog from './pages/add'
+import Status from './pages/status'
 
 
 
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
   {
     path: Paths.register,
     element: <Register />
+  },
+  {
+    path: Paths.logAdd,
+    element: <AddLog />
+  },
+  {
+    path: `${Paths.status}/:status`,
+    element: <Status />
   },
 ])
 
